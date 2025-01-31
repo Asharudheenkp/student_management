@@ -49,7 +49,7 @@ class StudentManagementController extends Controller
 
         StudentMark::insert($data);
         flash()->success('Student mark added successfully.');
-        return to_route('stutdent.index');
+        return response()->json(['status' => true, 'url' => route('stutdent.index')]);
     }
 
     /**

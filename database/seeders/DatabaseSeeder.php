@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Constants\SubjectConstants;
 use App\Models\Subject;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,9 +22,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Subject::factory()->create([
-            'subject_name' => 'Science',
-        ]);
+        foreach (SubjectConstants::SUBJECTS as $subject) {
+            Subject::factory()->create(['subject_name' => $subject]);
+        }
 
 
     }

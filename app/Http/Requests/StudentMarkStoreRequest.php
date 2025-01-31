@@ -21,7 +21,6 @@ class StudentMarkStoreRequest extends FormRequest
      */
     public function rules(): array
     {
-        // dd(request()->all());
         return [
             'student_name' => 'required|max:100',
             'subject_id.*' => 'required',
@@ -33,6 +32,10 @@ class StudentMarkStoreRequest extends FormRequest
     {
         return [
             'subject_id.*.required' => 'Please select a subject',
+            'mark.*.required' => 'The mark field is required.',
+            'mark.*.max' => 'The mark must not be greater than 100.',
+            'mark.*.numeric' => 'The mark should be a number.',
+
         ];
     }
 }
